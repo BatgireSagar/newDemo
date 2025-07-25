@@ -1,0 +1,88 @@
+{
+  "info": {
+    "_postman_id": "onboarding-demo-collection",
+    "name": "Onboarding API Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Capture CDD Data",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"caseId\": \"CASE123\",\n  \"registrationNo\": \"REG123\",\n  \"clientName\": \"Acme Corp\",\n  \"country\": \"UK\",\n  \"sla\": \"24h\",\n  \"assignedTo\": \"Alice\",\n  \"fastTrackStatus\": true,\n  \"fullLegalName\": \"Acme Corporation Ltd\",\n  \"registeredNumber\": \"12345678\",\n  \"registeredAddress\": \"1 Acme St, London\",\n  \"legalForm\": \"Private Limited\",\n  \"countryOfEstablishment\": \"UK\",\n  \"dateOfIncorporation\": \"2010-01-01\",\n  \"tradingName\": \"Acme\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/client/capture",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "client", "capture"]
+        }
+      }
+    },
+    {
+      "name": "Compare Data",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/data/compare/CASE123",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "data", "compare", "CASE123"]
+        }
+      }
+    },
+    {
+      "name": "AI Analyze",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"submittedData\": {\n    \"caseId\": \"CASE123\",\n    \"registrationNo\": \"REG123\",\n    \"clientName\": \"Acme Corp\",\n    \"country\": \"UK\",\n    \"sla\": \"24h\",\n    \"assignedTo\": \"Alice\",\n    \"fastTrackStatus\": true,\n    \"fullLegalName\": \"Acme Corporation Ltd\",\n    \"registeredNumber\": \"12345678\",\n    \"registeredAddress\": \"1 Acme St, London\",\n    \"legalForm\": \"Private Limited\",\n    \"countryOfEstablishment\": \"UK\",\n    \"dateOfIncorporation\": \"2010-01-01\",\n    \"tradingName\": \"Acme\"\n  },\n  \"companiesHouse\": {\n    \"fullLegalName\": \"Acme Corporation Ltd\",\n    \"registeredNumber\": \"12345678\",\n    \"registeredAddress\": \"1 Acme St, London\",\n    \"legalForm\": \"Private Limited\",\n    \"countryOfEstablishment\": \"UK\",\n    \"dateOfIncorporation\": \"2010-01-01\",\n    \"tradingName\": \"Acme\"\n  },\n  \"customerSystem\": {\n    \"fullLegalName\": \"Acme Corporation Ltd\",\n    \"registeredNumber\": \"12345678\",\n    \"registeredAddress\": \"2 Acme St, London\",\n    \"legalForm\": \"Private Limited\",\n    \"countryOfEstablishment\": \"UK\",\n    \"dateOfIncorporation\": \"2010-01-01\",\n    \"tradingName\": \"Acme\"\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/ai/analyze",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "ai", "analyze"]
+        }
+      }
+    },
+    {
+      "name": "Contact Client",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8080/api/contact-client/CASE123",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "contact-client", "CASE123"]
+        }
+      }
+    },
+    {
+      "name": "Journey Decision",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/journey/decision/CASE123",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "journey", "decision", "CASE123"]
+        }
+      }
+    }
+  ]
+}
