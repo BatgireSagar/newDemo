@@ -1,4 +1,4 @@
-package com.onboarding.backend.dto;
+package com.onboarding.kyc.web.dto;
 
 import lombok.*;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AiAnalyzeResponseDTO {
+public class ApiAiAssessmentResponse {
     private List<Conflict> conflicts;
     private List<String> missingFields;
     private String recommendation;

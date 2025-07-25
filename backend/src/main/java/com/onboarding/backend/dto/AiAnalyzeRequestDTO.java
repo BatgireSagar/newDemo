@@ -1,4 +1,4 @@
-package com.onboarding.backend.dto;
+package com.onboarding.kyc.web.dto;
 
 import lombok.*;
 
@@ -6,8 +6,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AiAnalyzeRequestDTO {
-    private ClientInfoDTO submittedData;
-    private ComparisonDataDTO.ExternalData companiesHouse;
-    private ComparisonDataDTO.ExternalData customerSystem;
+public class ApiAiAssessmentRequest {
+    private ApiCddInfoRequest submittedData;
+    private ApiComparisonResponse.ExternalData companiesHouse;
+    private ApiComparisonResponse.ExternalData customerSystem;
 }

@@ -1,4 +1,4 @@
-package com.onboarding.backend.model;
+package com.onboarding.kyc.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CaseJourney {
+public class OnboardingJourney {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

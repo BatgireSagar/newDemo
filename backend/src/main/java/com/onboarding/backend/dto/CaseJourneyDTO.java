@@ -1,4 +1,4 @@
-package com.onboarding.backend.dto;
+package com.onboarding.kyc.web.dto;
 
 import lombok.*;
 import java.time.LocalDateTime;
@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CaseJourneyDTO {
+public class ApiOnboardingJourneyResponse {
     private String caseId;
     private String journeyStatus;
     private LocalDateTime lastUpdated;

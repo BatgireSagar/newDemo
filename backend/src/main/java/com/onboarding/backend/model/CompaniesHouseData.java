@@ -1,4 +1,4 @@
-package com.onboarding.backend.model;
+package com.onboarding.kyc.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CompaniesHouseData {
+public class ExternalCompanyData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

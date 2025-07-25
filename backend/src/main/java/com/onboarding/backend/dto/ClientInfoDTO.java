@@ -1,4 +1,4 @@
-package com.onboarding.backend.dto;
+package com.onboarding.kyc.web.dto;
 
 import lombok.*;
 import java.time.LocalDate;
@@ -7,7 +7,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ClientInfoDTO {
+public class ApiCddInfoRequest {
     private String caseId;
     private String registrationNo;
     private String clientName;

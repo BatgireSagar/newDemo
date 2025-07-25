@@ -1,4 +1,4 @@
-package com.onboarding.backend.dto;
+package com.onboarding.kyc.web.dto;
 
 import lombok.*;
 import java.time.LocalDate;
@@ -7,8 +7,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ComparisonDataDTO {
-    private ClientInfoDTO cddInfo;
+public class ApiComparisonResponse {
+    private ApiCddInfoRequest cddInfo;
     private ExternalData companiesHouse;
     private ExternalData customerSystem;
 
