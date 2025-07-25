@@ -1,0 +1,59 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    container_name: onboarding-db
+    environment:
+      POSTGRES_DB: onboarding
+      POSTGRES_USER: onboard
+      POSTGRES_PASSWORD: onboardpw
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: onboarding-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/onboarding
+      SPRING_DATASOURCE_USERNAME: onboard
+      SPRING_DATASOURCE_PASSWORD: onboardpw
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      BEDROCK_API_KEY: ${BEDROCK_API_KEY:-demo}
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+      - camunda
+    networks:
+      - onboarding-net
+
+  frontend:
+    build: ./frontend
+    container_name: onboarding-frontend
+    ports:
+      - '3000:3000'
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080/api
+    depends_on:
+      - backend
+    networks:
+      - onboarding-net
+
+  camunda:
+    image: camunda/zeebe:8.3.2
+    container_name: onboarding-camunda
+    environment:
+      - ZEEBE_LOG_LEVEL=info
+    ports:
+      - '8081:8080'
+    networks:
+      - onboarding-net
+
+volumes:
+  db_data:
+
+networks:
+  onboarding-net:
+    driver: bridge

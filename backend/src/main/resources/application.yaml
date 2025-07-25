@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/onboarding
+    username: onboard
+    password: onboardpw
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+bedrock:
+  api-key: ${BEDROCK_API_KEY:demo}
+  endpoint: https://bedrock-api.aws.com
+  model-id: LAGLamda-cddGen
+
+camunda:
+  bpm:
+    admin-user:
+      id: admin
+      password: admin
+      firstName: Admin
+    filter:
+      create: All tasks
